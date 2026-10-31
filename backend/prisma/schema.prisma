@@ -1,0 +1,102 @@
+// ============================================================
+// Modelo da base de dados do Sistema de Gestão Escolar
+// Cada "model" vira uma tabela no PostgreSQL.
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------- Enumerações (listas de valores permitidos) ----------
+
+// Perfis de acesso ao sistema
+enum Papel {
+  ADMIN
+  PROFESSOR
+  SECRETARIA
+}
+
+// Situação do aluno
+enum EstadoAluno {
+  ACTIVO
+  INACTIVO
+}
+
+// ---------- Tabelas ----------
+
+// Utilizadores que entram no sistema (login)
+model Utilizador {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  email     String   @unique // não pode haver dois iguais
+  senha     String // guardada SEMPRE cifrada (hash), nunca em texto
+  papel     Papel    @default(PROFESSOR)
+  criadoEm  DateTime @default(now())
+
+  @@map("utilizadores") // nome real da tabela no PostgreSQL
+}
+
+// Turmas (ex.: 10ª A, ano lectivo 2026)
+model Turma {
+  id          Int      @id @default(autoincrement())
+  nome        String
+  anoLectivo  Int
+  criadoEm    DateTime @default(now())
+
+  alunos      Aluno[] // uma turma tem vários alunos
+
+  // Não pode existir duas turmas com o mesmo nome no mesmo ano
+  @@unique([nome, anoLectivo])
+  @@map("turmas")
+}
+
+// Alunos do colégio
+model Aluno {
+  id               Int         @id @default(autoincrement())
+  nome             String
+  numeroProcesso   String      @unique // número de processo do aluno
+  dataNascimento   DateTime?
+  estado           EstadoAluno @default(ACTIVO)
+  criadoEm         DateTime    @default(now())
+
+  // Relação com a turma (opcional: o aluno pode ainda não ter turma)
+  turmaId          Int?
+  turma            Turma?      @relation(fields: [turmaId], references: [id])
+
+  notas            Nota[]
+
+  @@map("alunos")
+}
+
+// Disciplinas (Matemática, Português, ...)
+model Disciplina {
+  id     Int    @id @default(autoincrement())
+  nome   String @unique
+
+  notas  Nota[]
+
+  @@map("disciplinas")
+}
+
+// Notas lançadas pelos professores
+model Nota {
+  id            Int      @id @default(autoincrement())
+  valor         Float // nota de 0 a 20
+  trimestre     Int // 1, 2 ou 3
+  criadoEm      DateTime @default(now())
+
+  alunoId       Int
+  aluno         Aluno      @relation(fields: [alunoId], references: [id], onDelete: Cascade)
+
+  disciplinaId  Int
+  disciplina    Disciplina @relation(fields: [disciplinaId], references: [id])
+
+  // Um aluno só pode ter uma nota por disciplina em cada trimestre
+  @@unique([alunoId, disciplinaId, trimestre])
+  @@map("notas")
+}
