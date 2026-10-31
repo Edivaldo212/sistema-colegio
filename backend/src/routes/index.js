@@ -1,6 +1,5 @@
 // ============================================================
 // Ponto central das rotas da API.
-// Mais tarde vamos adicionar aqui: notas...
 // ============================================================
 import { Router } from "express";
 import { prisma } from "../lib/prisma.js";
@@ -8,6 +7,8 @@ import authRoutes from "./auth.routes.js";
 import turmasRoutes from "./turmas.routes.js";
 import disciplinasRoutes from "./disciplinas.routes.js";
 import alunosRoutes from "./alunos.routes.js";
+import notasRoutes from "./notas.routes.js";
+import painelRoutes from "./painel.routes.js";
 
 const router = Router();
 
@@ -26,5 +27,7 @@ router.use("/auth", authRoutes);
 router.use("/turmas", turmasRoutes);
 router.use("/disciplinas", disciplinasRoutes);
 router.use("/alunos", alunosRoutes);
+router.use("/notas", notasRoutes);
+router.use("/painel", painelRoutes);
 
 export default router;
