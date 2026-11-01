@@ -21,13 +21,40 @@ const DISCIPLINAS = [
 
 // Nomes fictícios: 15 nomes x 17 apelidos, combinados de forma variada
 const NOMES = [
-  "Maria", "João", "Ana", "Pedro", "Luísa", "Miguel", "Beatriz", "Tomás",
-  "Joana", "Rui", "Carla", "Paulo", "Sofia", "Mateus", "Helena",
+  "Maria",
+  "João",
+  "Ana",
+  "Pedro",
+  "Luísa",
+  "Miguel",
+  "Beatriz",
+  "Tomás",
+  "Joana",
+  "Rui",
+  "Carla",
+  "Paulo",
+  "Sofia",
+  "Mateus",
+  "Helena",
 ];
 const APELIDOS = [
-  "Silva", "Santos", "Ferreira", "Costa", "Pereira", "Fernandes", "Baptista",
-  "Cardoso", "Gomes", "Neto", "Lopes", "Mendes", "Rocha", "Tavares",
-  "Domingos", "Ribeiro", "Cunha",
+  "Silva",
+  "Santos",
+  "Ferreira",
+  "Costa",
+  "Pereira",
+  "Fernandes",
+  "Baptista",
+  "Cardoso",
+  "Gomes",
+  "Neto",
+  "Lopes",
+  "Mendes",
+  "Rocha",
+  "Tavares",
+  "Domingos",
+  "Ribeiro",
+  "Cunha",
 ];
 
 // Gerador de números "aleatórios" com semente fixa: dá sempre os mesmos
@@ -76,9 +103,7 @@ async function main() {
     alunos.push({
       nome: `${NOMES[i % NOMES.length]} ${APELIDOS[(i * 7 + 3) % APELIDOS.length]}`,
       numeroProcesso: `D${ANO}${String(i + 1).padStart(3, "0")}`,
-      dataNascimento: new Date(
-        Date.UTC(ANO - 15 - indiceTurma, (i * 5) % 12, 1 + ((i * 11) % 28))
-      ),
+      dataNascimento: new Date(Date.UTC(ANO - 15 - indiceTurma, (i * 5) % 12, 1 + ((i * 11) % 28))),
       turmaId: turma.id,
     });
   }
@@ -117,4 +142,4 @@ main()
     console.error(erro.message);
     process.exit(1);
   })
-  .finally(() => prisma.$disconnect()); 
+  .finally(() => prisma.$disconnect());

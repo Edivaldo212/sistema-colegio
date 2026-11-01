@@ -10,6 +10,9 @@ import { ErroHttp } from "./lib/http.js";
 
 const app = express();
 
+// Atrás do proxy da Render: usa o IP real do cliente (necessário para o rate limit)
+app.set("trust proxy", 1);
+
 // --- Middlewares: funções que correm antes das rotas ---
 app.use(helmet()); // cabeçalhos de segurança
 app.use(

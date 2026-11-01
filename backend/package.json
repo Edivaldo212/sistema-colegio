@@ -10,7 +10,8 @@
     "seed": "node --env-file=.env prisma/seed.js",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "seed-demo": "node --env-file=.env prisma/seed-demo.js"
+    "seed-demo": "node --env-file=.env prisma/seed-demo.js",
+    "preparar-producao": "node --env-file=.env prisma/preparar-producao.js"
   },
   "keywords": [],
   "author": "",
