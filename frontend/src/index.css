@@ -317,3 +317,190 @@ input {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Botões ===== */
+.botao {
+  padding: 0.6rem 1rem;
+  background: var(--cor-primaria);
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: var(--raio);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.botao:hover {
+  background: var(--cor-primaria-escura);
+}
+
+.botao:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.botao--secundario {
+  background: #fff;
+  color: var(--cor-texto);
+  border-color: var(--cor-borda);
+}
+
+.botao--secundario:hover {
+  background: var(--cor-fundo);
+}
+
+.botao--perigo {
+  background: #dc2626;
+}
+
+.botao--perigo:hover {
+  background: #b91c1c;
+}
+
+.botao--pequeno {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.85rem;
+}
+
+/* ===== Cabeçalho das páginas e mensagens ===== */
+.cabecalho-pagina {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.cabecalho-pagina h1 {
+  margin-bottom: 0;
+}
+
+.mensagem-sucesso {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--raio);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.principal > .mensagem-erro {
+  margin-bottom: 1rem;
+}
+
+/* ===== Filtros ===== */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.filtros input,
+.filtros select,
+.formulario input,
+.formulario select {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--raio);
+  font-size: 0.95rem;
+  background: #fff;
+  color: var(--cor-texto);
+}
+
+.filtros input:focus,
+.filtros select:focus,
+.formulario input:focus,
+.formulario select:focus {
+  outline: 2px solid var(--cor-primaria);
+  border-color: transparent;
+}
+
+.filtros__pesquisa {
+  flex: 1;
+  min-width: 220px;
+}
+
+/* ===== Tabela: extras ===== */
+.tabela-cartao--a-carregar {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.tabela__acoes {
+  display: flex;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.paginacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+}
+
+.paginacao__botoes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ===== Modal (janela) ===== */
+.modal {
+  margin: auto; /* o reset "* { margin: 0 }" tiraria o centramento do <dialog> */
+  width: min(520px, calc(100% - 2rem));
+  padding: 0;
+  border: none;
+  border-radius: var(--raio);
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.25);
+  color: var(--cor-texto);
+}
+
+.modal::backdrop {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+.modal__conteudo {
+  padding: 1.5rem;
+}
+
+.modal__conteudo h2 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.confirmacao {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* ===== Formulário ===== */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formulario label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.formulario .mensagem-erro {
+  margin-top: 0.75rem;
+}
+
+.formulario__acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}

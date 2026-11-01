@@ -7,6 +7,7 @@ import RotaProtegida from "./components/RotaProtegida.jsx";
 import Layout from "./components/Layout.jsx";
 import Login from "./pages/Login.jsx";
 import Painel from "./pages/Painel.jsx";
+import Alunos from "./pages/Alunos.jsx";
 import EmConstrucao from "./pages/EmConstrucao.jsx";
 
 export default function App() {
@@ -21,7 +22,7 @@ export default function App() {
           <Route element={<RotaProtegida />}>
             <Route element={<Layout />}>
               <Route index element={<Painel />} />
-              <Route path="alunos" element={<EmConstrucao titulo="Alunos" />} />
+              <Route path="alunos" element={<Alunos />} />
               <Route path="turmas" element={<EmConstrucao titulo="Turmas" />} />
               <Route path="notas" element={<EmConstrucao titulo="Notas" />} />
             </Route>
