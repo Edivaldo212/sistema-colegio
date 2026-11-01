@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test",
     "dev": "node --watch --env-file=.env src/server.js",
     "start": "node src/server.js",
     "seed": "node --env-file=.env prisma/seed.js",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
@@ -25,6 +26,9 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "globals": "^17.13.0",
     "prettier": "^3.9.10",
     "prisma": "^6.19.3"
   }
