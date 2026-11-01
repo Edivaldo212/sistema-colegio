@@ -504,3 +504,92 @@ input {
   gap: 0.75rem;
   margin-top: 1.25rem;
 }
+
+/* ===== Abas ===== */
+.abas {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.aba {
+  padding: 0.6rem 1rem;
+  margin-bottom: -1px; /* a linha activa sobrepõe-se à borda das abas */
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.aba:hover {
+  color: var(--cor-texto);
+}
+
+.aba--activa {
+  color: var(--cor-primaria);
+  border-bottom-color: var(--cor-primaria);
+}
+
+/* ===== Caixa de nota ===== */
+.nota-input {
+  width: 5.5rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--raio);
+  font-size: 0.95rem;
+  text-align: center;
+  background: #fff;
+  color: var(--cor-texto);
+}
+
+.nota-input:focus {
+  outline: 2px solid var(--cor-primaria);
+  border-color: transparent;
+}
+
+/* Azul = alterada e ainda por guardar; vermelho = valor inválido */
+.nota-input--alterada {
+  background: #eff6ff;
+  border-color: var(--cor-primaria);
+}
+
+.nota-input--invalida {
+  background: #fef2f2;
+  border-color: #dc2626;
+}
+
+/* ===== Boletim ===== */
+.nota--negativa {
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+.tabela tfoot td {
+  border-bottom: none;
+  border-top: 2px solid var(--cor-borda);
+}
+
+/* ===== Impressão do boletim ===== */
+@media print {
+  .menu,
+  .topo,
+  .nao-imprimir {
+    display: none !important;
+  }
+
+  .layout {
+    display: block;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .tabela-cartao {
+    box-shadow: none;
+  }
+}
