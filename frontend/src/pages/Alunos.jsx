@@ -53,7 +53,10 @@ export default function Alunos() {
 
   // Carrega as turmas uma vez (para o filtro e para o formulário)
   useEffect(() => {
-    api.get("/turmas").then(setTurmas).catch(() => {});
+    api
+      .get("/turmas")
+      .then(setTurmas)
+      .catch(() => {});
   }, []);
 
   // Carrega os alunos sempre que os filtros, a página ou a "versão" mudam
@@ -153,8 +156,16 @@ export default function Alunos() {
         )}
       </div>
 
-      {aviso && <p className="mensagem-sucesso" role="status">{aviso}</p>}
-      {erro && <p className="mensagem-erro" role="alert">{erro}</p>}
+      {aviso && (
+        <p className="mensagem-sucesso" role="status">
+          {aviso}
+        </p>
+      )}
+      {erro && (
+        <p className="mensagem-erro" role="alert">
+          {erro}
+        </p>
+      )}
 
       {/* ----- Filtros ----- */}
       <div className="filtros">
@@ -298,11 +309,15 @@ export default function Alunos() {
         {aApagar && (
           <>
             <p className="confirmacao">
-              Tens a certeza que queres apagar <strong>{aApagar.nome}</strong>? As notas deste
-              aluno também serão apagadas. Esta acção não pode ser desfeita.
+              Tens a certeza que queres apagar <strong>{aApagar.nome}</strong>? As notas deste aluno
+              também serão apagadas. Esta acção não pode ser desfeita.
             </p>
 
-            {erroApagar && <p className="mensagem-erro" role="alert">{erroApagar}</p>}
+            {erroApagar && (
+              <p className="mensagem-erro" role="alert">
+                {erroApagar}
+              </p>
+            )}
 
             <div className="formulario__acoes">
               <button

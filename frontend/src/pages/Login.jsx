@@ -61,7 +61,11 @@ export default function Login() {
             required
           />
 
-          {erro && <p className="mensagem-erro" role="alert">{erro}</p>}
+          {erro && (
+            <p className="mensagem-erro" role="alert">
+              {erro}
+            </p>
+          )}
 
           <button type="submit" disabled={aEnviar}>
             {aEnviar ? "A entrar..." : "Entrar"}

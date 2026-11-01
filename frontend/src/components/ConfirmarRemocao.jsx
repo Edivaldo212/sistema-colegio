@@ -17,11 +17,15 @@ export default function ConfirmarRemocao({
   return (
     <Modal aberto={aberto} titulo={titulo} onFechar={onCancelar}>
       <p className="confirmacao">
-        Tens a certeza que queres apagar <strong>{nome}</strong>? {detalhe} Esta acção não pode
-        ser desfeita.
+        Tens a certeza que queres apagar <strong>{nome}</strong>? {detalhe} Esta acção não pode ser
+        desfeita.
       </p>
 
-      {erro && <p className="mensagem-erro" role="alert">{erro}</p>}
+      {erro && (
+        <p className="mensagem-erro" role="alert">
+          {erro}
+        </p>
+      )}
 
       <div className="formulario__acoes">
         <button type="button" className="botao botao--secundario" onClick={onCancelar}>

@@ -43,12 +43,7 @@ export default function AlunoFormulario({ aluno, turmas, onSubmeter, onCancelar 
   return (
     <form className="formulario" onSubmit={aoSubmeter}>
       <label htmlFor="aluno-nome">Nome completo</label>
-      <input
-        id="aluno-nome"
-        value={nome}
-        onChange={(e) => setNome(e.target.value)}
-        required
-      />
+      <input id="aluno-nome" value={nome} onChange={(e) => setNome(e.target.value)} required />
 
       <label htmlFor="aluno-processo">Número de processo</label>
       <input
@@ -82,7 +77,11 @@ export default function AlunoFormulario({ aluno, turmas, onSubmeter, onCancelar 
         <option value="INACTIVO">Inactivo</option>
       </select>
 
-      {erro && <p className="mensagem-erro" role="alert">{erro}</p>}
+      {erro && (
+        <p className="mensagem-erro" role="alert">
+          {erro}
+        </p>
+      )}
 
       <div className="formulario__acoes">
         <button type="button" className="botao botao--secundario" onClick={onCancelar}>

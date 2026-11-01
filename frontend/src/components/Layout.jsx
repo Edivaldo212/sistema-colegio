@@ -13,8 +13,7 @@ const ROTULOS_PAPEL = {
 };
 
 // NavLink sabe se a rota está activa e deixa-nos mudar a classe
-const classeLink = ({ isActive }) =>
-  isActive ? "menu__link menu__link--ativo" : "menu__link";
+const classeLink = ({ isActive }) => (isActive ? "menu__link menu__link--ativo" : "menu__link");
 
 export default function Layout() {
   const { utilizador, sair } = useAuth();
@@ -25,11 +24,31 @@ export default function Layout() {
         <h2 className="menu__logo">Sistema Escolar</h2>
         <nav>
           <ul className="menu__lista">
-            <li><NavLink to="/" end className={classeLink}>Painel</NavLink></li>
-            <li><NavLink to="/alunos" className={classeLink}>Alunos</NavLink></li>
-            <li><NavLink to="/turmas" className={classeLink}>Turmas</NavLink></li>
-            <li><NavLink to="/disciplinas" className={classeLink}>Disciplinas</NavLink></li>
-            <li><NavLink to="/notas" className={classeLink}>Notas</NavLink></li>
+            <li>
+              <NavLink to="/" end className={classeLink}>
+                Painel
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/alunos" className={classeLink}>
+                Alunos
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/turmas" className={classeLink}>
+                Turmas
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/disciplinas" className={classeLink}>
+                Disciplinas
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/notas" className={classeLink}>
+                Notas
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </aside>

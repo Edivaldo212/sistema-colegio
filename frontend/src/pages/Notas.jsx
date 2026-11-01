@@ -24,7 +24,12 @@ export default function Notas() {
     };
   }, []);
 
-  if (erro) return <p className="mensagem-erro" role="alert">{erro}</p>;
+  if (erro)
+    return (
+      <p className="mensagem-erro" role="alert">
+        {erro}
+      </p>
+    );
   if (!dados) return <p className="carregando">A carregar...</p>;
 
   const { turmas, disciplinas } = dados;

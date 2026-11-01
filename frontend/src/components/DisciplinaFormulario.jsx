@@ -34,7 +34,11 @@ export default function DisciplinaFormulario({ disciplina, onSubmeter, onCancela
         required
       />
 
-      {erro && <p className="mensagem-erro" role="alert">{erro}</p>}
+      {erro && (
+        <p className="mensagem-erro" role="alert">
+          {erro}
+        </p>
+      )}
 
       <div className="formulario__acoes">
         <button type="button" className="botao botao--secundario" onClick={onCancelar}>

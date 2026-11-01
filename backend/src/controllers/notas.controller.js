@@ -7,10 +7,7 @@ import { ErroHttp, lerId, validar } from "../lib/http.js";
 import { media } from "../lib/calculos.js";
 
 // Nota de 0 a 20
-const valorNota = z
-  .number()
-  .min(0, "A nota mínima é 0")
-  .max(20, "A nota máxima é 20");
+const valorNota = z.number().min(0, "A nota mínima é 0").max(20, "A nota máxima é 20");
 
 // Regras para lançar uma nota
 const esquemaNota = z.object({

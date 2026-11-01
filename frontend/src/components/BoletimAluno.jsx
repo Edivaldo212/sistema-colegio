@@ -105,7 +105,11 @@ export default function BoletimAluno({ turmas }) {
         </select>
       </div>
 
-      {erro && <p className="mensagem-erro" role="alert">{erro}</p>}
+      {erro && (
+        <p className="mensagem-erro" role="alert">
+          {erro}
+        </p>
+      )}
 
       {!alunoId && <p className="vazio">Escolhe a turma e o aluno para ver o boletim.</p>}
       {alunoId && !dados && !erro && <p className="carregando">A carregar...</p>}

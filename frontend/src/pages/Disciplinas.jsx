@@ -95,8 +95,16 @@ export default function Disciplinas() {
         )}
       </div>
 
-      {aviso && <p className="mensagem-sucesso" role="status">{aviso}</p>}
-      {erro && <p className="mensagem-erro" role="alert">{erro}</p>}
+      {aviso && (
+        <p className="mensagem-sucesso" role="status">
+          {aviso}
+        </p>
+      )}
+      {erro && (
+        <p className="mensagem-erro" role="alert">
+          {erro}
+        </p>
+      )}
 
       {!disciplinas && !erro && <p className="carregando">A carregar...</p>}
 

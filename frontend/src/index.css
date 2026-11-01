@@ -17,7 +17,11 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
   background: var(--cor-fundo);
   color: var(--cor-texto);
 }
@@ -160,7 +164,9 @@ input {
   color: #cbd5e1;
   text-decoration: none;
   border-radius: var(--raio);
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .menu__link:hover {

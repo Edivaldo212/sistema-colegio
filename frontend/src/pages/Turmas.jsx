@@ -96,8 +96,16 @@ export default function Turmas() {
         )}
       </div>
 
-      {aviso && <p className="mensagem-sucesso" role="status">{aviso}</p>}
-      {erro && <p className="mensagem-erro" role="alert">{erro}</p>}
+      {aviso && (
+        <p className="mensagem-sucesso" role="status">
+          {aviso}
+        </p>
+      )}
+      {erro && (
+        <p className="mensagem-erro" role="alert">
+          {erro}
+        </p>
+      )}
 
       {!turmas && !erro && <p className="carregando">A carregar...</p>}
 

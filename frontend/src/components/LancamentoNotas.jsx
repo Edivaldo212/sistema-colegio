@@ -145,7 +145,9 @@ export default function LancamentoNotas({ turmas, disciplinas }) {
       setAviso(`${guardadas} ${guardadas === 1 ? "alteração guardada" : "alterações guardadas"}.`);
     }
     if (falhas.length > 0) {
-      setErro(`${falhas.length} não ${falhas.length === 1 ? "foi guardada" : "foram guardadas"}: ${falhas[0].reason.message}`);
+      setErro(
+        `${falhas.length} não ${falhas.length === 1 ? "foi guardada" : "foram guardadas"}: ${falhas[0].reason.message}`
+      );
     }
 
     setAGuardar(false);
@@ -183,12 +185,18 @@ export default function LancamentoNotas({ turmas, disciplinas }) {
         </select>
       </div>
 
-      {aviso && <p className="mensagem-sucesso" role="status">{aviso}</p>}
-      {erro && <p className="mensagem-erro" role="alert">{erro}</p>}
-
-      {!seleccionado && (
-        <p className="vazio">Escolhe a turma e a disciplina para ver os alunos.</p>
+      {aviso && (
+        <p className="mensagem-sucesso" role="status">
+          {aviso}
+        </p>
       )}
+      {erro && (
+        <p className="mensagem-erro" role="alert">
+          {erro}
+        </p>
+      )}
+
+      {!seleccionado && <p className="vazio">Escolhe a turma e a disciplina para ver os alunos.</p>}
 
       {seleccionado && !carregado && !erro && <p className="carregando">A carregar...</p>}
 

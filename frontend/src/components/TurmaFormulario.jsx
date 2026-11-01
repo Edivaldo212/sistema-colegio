@@ -52,7 +52,11 @@ export default function TurmaFormulario({ turma, onSubmeter, onCancelar }) {
         required
       />
 
-      {erro && <p className="mensagem-erro" role="alert">{erro}</p>}
+      {erro && (
+        <p className="mensagem-erro" role="alert">
+          {erro}
+        </p>
+      )}
 
       <div className="formulario__acoes">
         <button type="button" className="botao botao--secundario" onClick={onCancelar}>

@@ -31,9 +31,7 @@ export async function login(req, res) {
   const utilizador = await prisma.utilizador.findUnique({ where: { email } });
 
   // Compara a senha enviada com o hash guardado
-  const senhaCorreta = utilizador
-    ? await bcrypt.compare(senha, utilizador.senha)
-    : false;
+  const senhaCorreta = utilizador ? await bcrypt.compare(senha, utilizador.senha) : false;
 
   // Mesma mensagem para "email não existe" e "senha errada":
   // assim não revelamos a um atacante quais emails existem.
