@@ -1,0 +1,20 @@
+# ============================================================
+# Dependabot: verifica actualizações de bibliotecas todos os meses.
+# ============================================================
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/backend"
+    schedule:
+      interval: "monthly"
+    # Prisma 7 é uma mudança grande: migramos quando decidirmos, não por aviso automático
+    ignore:
+      - dependency-name: "prisma"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@prisma/client"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "monthly"
