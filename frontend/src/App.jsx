@@ -8,6 +8,8 @@ import Layout from "./components/Layout.jsx";
 import Login from "./pages/Login.jsx";
 import Painel from "./pages/Painel.jsx";
 import Alunos from "./pages/Alunos.jsx";
+import Turmas from "./pages/Turmas.jsx";
+import Disciplinas from "./pages/Disciplinas.jsx";
 import EmConstrucao from "./pages/EmConstrucao.jsx";
 
 export default function App() {
@@ -23,7 +25,8 @@ export default function App() {
             <Route element={<Layout />}>
               <Route index element={<Painel />} />
               <Route path="alunos" element={<Alunos />} />
-              <Route path="turmas" element={<EmConstrucao titulo="Turmas" />} />
+              <Route path="turmas" element={<Turmas />} />
+              <Route path="disciplinas" element={<Disciplinas />} />
               <Route path="notas" element={<EmConstrucao titulo="Notas" />} />
             </Route>
           </Route>

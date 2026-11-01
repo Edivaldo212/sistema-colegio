@@ -28,6 +28,7 @@ export default function Layout() {
             <li><NavLink to="/" end className={classeLink}>Painel</NavLink></li>
             <li><NavLink to="/alunos" className={classeLink}>Alunos</NavLink></li>
             <li><NavLink to="/turmas" className={classeLink}>Turmas</NavLink></li>
+            <li><NavLink to="/disciplinas" className={classeLink}>Disciplinas</NavLink></li>
             <li><NavLink to="/notas" className={classeLink}>Notas</NavLink></li>
           </ul>
         </nav>
